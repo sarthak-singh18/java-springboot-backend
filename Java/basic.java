@@ -42,17 +42,17 @@
 //Typecasting
 //there are two type of type conversion
 //Widening(smaller data type to larger) & Narrowing(larger to smaller)
-class basic{
-    public static void main(String[] args){
-        int a=10;
-        double b=a; //widening
-        System.out.println(b);
+// class basic{
+//     public static void main(String[] args){
+//         int a=10;
+//         double b=a; //widening
+//         System.out.println(b);
 
-        double x=10.5;
-        int y=(int)x;//narrowing
-        System.out.println(y);
-    }
-}
+//         double x=10.5;
+//         int y=(int)x;//narrowing
+//         System.out.println(y);
+//     }
+// }
 
 
 //overflow during the type cassting
@@ -70,3 +70,148 @@ class basic{
 //Since the leftmost bit is 1, it represents a negative number in signed 8-bit two's-complement representation.
 
 //130 - 256 = -126
+
+
+//Methods in java
+//is a block of code that perform a specific task it help us reuse code instead of writing the same logic repeatedly
+// class basic{
+//     static void greet(){
+//         System.out.println("Hello Sarthak");
+//     }
+
+//     public static void main(String[] args){
+//         greet();
+//         greet();
+//     }
+// }
+
+//Method overloading
+//means having multiplel mehtods with the same name but different parameter list in the same class
+
+// int add(int a,int b){
+//     return a+b;
+// }
+// int add(int a,int b,int c){
+//     return a+b+c;
+// }
+// double add(double a,double b){
+//     return a+b;
+// }
+
+// Remember the three rules of method overloading
+// Methods can be overloaded by changing:
+// 1. Number of parameters
+// 2. Type of parameters
+// 3. Order of parameter types
+
+//Pass by value in java
+// class basic{
+//     static void change(int x){
+//         x=100;
+//     }
+//     public static void main(String[] args){
+//         int a=10;
+//         change(a);
+//         System.out.println(a);
+//     }
+// }
+
+//varargs in java
+//it allow a method to accept a variable number of arguments
+class basic{
+    static int add(int... numbers){
+        int sum=0;
+
+        for(int num:numbers){
+            sum+=num;
+        }
+        return sum;
+    }
+    public static void main(String[] args){
+         System.out.println(add(10,20));
+         System.out.println(add(10,20,30));
+         System.out.println(add(10,20.30,40));
+
+    }
+}
+
+//Important rules
+// 1.varags uses three dots
+// 2.a method can have only one varargs parameters
+// 3.Varargs must be the last parameter
+// 4.internally,varargs are treated as an array
+
+//Array of objects is an array that stores refernces to multiple
+//object of the same class
+class Student {
+
+    String name;
+    int age;
+    int marks;
+
+    void display() {
+        System.out.println(
+            name + " " + age + " " + marks
+        );
+    }
+}
+
+class basic{
+
+    public static void main(String[] args) {
+
+        Student[] students = new Student[3];
+
+        students[0] = new Student();
+        students[1] = new Student();
+        students[2] = new Student();
+
+        students[0].name = "Rahul";
+        students[0].age = 21;
+        students[0].marks = 85;
+
+        students[1].name = "Aman";
+        students[1].age = 22;
+        students[1].marks = 90;
+
+        students[2].name = "Sarthak";
+        students[2].age = 21;
+        students[2].marks = 95;
+
+        for (int i = 0; i < students.length; i++) {
+            students[i].display();
+        }
+    }
+}
+
+//instead of assiggng each propety sepaert;y we can use comstructors
+class Student {
+
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println(name + " " + age);
+    }
+}
+
+class Main {
+
+    public static void main(String[] args) {
+
+        Student[] students = {
+            new Student("Rahul", 21),
+            new Student("Aman", 22),
+            new Student("Sarthak", 21)
+        };
+
+        for (Student s : students) {
+            s.display();
+        }
+    }
+}
