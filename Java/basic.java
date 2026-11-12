@@ -216,3 +216,548 @@ class Main {
     }
 }
 
+
+import java.util.Arrays;
+
+public class Phase1Revision {
+
+    // Instance and static variables
+    int instanceVariable = 10;
+    static int staticVariable = 20;
+
+    public static void main(String[] args) {
+
+        System.out.println("===== 1. BASIC JAVA PROGRAM =====");
+        basicJava();
+
+        System.out.println("\n===== 2. VARIABLES AND DATA TYPES =====");
+        variablesAndDataTypes();
+
+        System.out.println("\n===== 3. TYPE CASTING AND PROMOTION =====");
+        typeCasting();
+
+        System.out.println("\n===== 4. OPERATORS =====");
+        operators();
+
+        System.out.println("\n===== 5. CONTROL FLOW =====");
+        controlFlow();
+
+        System.out.println("\n===== 6. METHODS AND OVERLOADING =====");
+        methodsAndOverloading();
+
+        System.out.println("\n===== 7. PASS BY VALUE =====");
+        passByValue();
+
+        System.out.println("\n===== 8. RECURSION =====");
+        recursion();
+
+        System.out.println("\n===== 9. VARARGS =====");
+        varargsDemo();
+
+        System.out.println("\n===== 10. ONE-DIMENSIONAL ARRAYS =====");
+        oneDArray();
+
+        System.out.println("\n===== 11. TWO-DIMENSIONAL ARRAYS =====");
+        twoDArray();
+
+        System.out.println("\n===== 12. ARRAY OF OBJECTS =====");
+        arrayOfObjects();
+
+        System.out.println("\n===== 13. ARRAYS CLASS =====");
+        arraysUtility();
+
+        System.out.println("\n===== 14. IMPORTANT TRICKY CONCEPTS =====");
+        trickyConcepts();
+    }
+
+    // 1. Basic Java program
+    static void basicJava() {
+
+        System.out.println("Hello Java!");
+
+        // Command-line arguments
+        // Run: java Phase1Revision Sarthak
+        // args[0] will contain Sarthak
+
+        // JVM starts execution from main()
+        // public = accessible to JVM
+        // static = no object required
+        // void = returns nothing
+        // String[] args = command-line arguments
+    }
+
+    // 2. Variables and data types
+    static void variablesAndDataTypes() {
+
+        // Primitive data types
+        byte b = 100;
+        short s = 1000;
+        int i = 50000;
+        long l = 100000L;
+
+        float f = 10.5f;
+        double d = 99.99;
+
+        char ch = 'A';
+        boolean flag = true;
+
+        System.out.println(b);
+        System.out.println(s);
+        System.out.println(i);
+        System.out.println(l);
+        System.out.println(f);
+        System.out.println(d);
+        System.out.println(ch);
+        System.out.println(flag);
+
+        // Local variable
+        int localVariable = 50;
+        System.out.println("Local: " + localVariable);
+
+        // Static variable
+        System.out.println("Static: " + staticVariable);
+
+        // Instance variable
+        Phase1Revision obj = new Phase1Revision();
+        System.out.println("Instance: " + obj.instanceVariable);
+    }
+
+    // 3. Type casting and type promotion
+    static void typeCasting() {
+
+        // Widening: automatic conversion
+        int a = 100;
+        double x = a;
+
+        System.out.println("Widening: " + x);
+
+        // Narrowing: explicit conversion
+        double price = 99.99;
+        int convertedPrice = (int) price;
+
+        System.out.println("Narrowing: " + convertedPrice);
+
+        // Integer division
+        int result = 10 / 3;
+        System.out.println("Integer division: " + result);
+
+        // Floating-point division
+        double result2 = (double) 10 / 3;
+        System.out.println("Double division: " + result2);
+
+        // Type promotion
+        byte num1 = 10;
+        byte num2 = 20;
+
+        int sum = num1 + num2;
+        System.out.println("Byte promotion: " + sum);
+
+        // Explicit casting required
+        byte small = (byte) (num1 + num2);
+        System.out.println("Explicit casting: " + small);
+
+        // Character conversion
+        char letter = 'A';
+        int ascii = letter;
+
+        System.out.println("ASCII value: " + ascii);
+
+        // Overflow
+        byte overflow = (byte) 130;
+        System.out.println("Overflow: " + overflow);
+    }
+
+    // 4. Operators
+    static void operators() {
+
+        int a = 10;
+        int b = 3;
+
+        // Arithmetic
+        System.out.println(a + b);
+        System.out.println(a - b);
+        System.out.println(a * b);
+        System.out.println(a / b);
+        System.out.println(a % b);
+
+        // Relational
+        System.out.println(a > b);
+        System.out.println(a == b);
+
+        // Logical
+        System.out.println(a > 5 && b < 5);
+        System.out.println(a > 5 || b > 5);
+        System.out.println(!(a > b));
+
+        // Unary
+        int x = 5;
+
+        System.out.println(x++); // 5, then x becomes 6
+        System.out.println(++x); // x becomes 7, then prints 7
+
+        // Bitwise
+        System.out.println(5 & 3);
+        System.out.println(5 | 3);
+        System.out.println(5 ^ 3);
+
+        // Ternary
+        int age = 20;
+
+        String status = (age >= 18) ? "Adult" : "Minor";
+
+        System.out.println(status);
+    }
+
+    // 5. Control flow
+    static void controlFlow() {
+
+        int marks = 85;
+
+        // If-else
+        if (marks >= 90) {
+            System.out.println("Grade A");
+        } else if (marks >= 75) {
+            System.out.println("Grade B");
+        } else {
+            System.out.println("Grade C");
+        }
+
+        // Switch
+        int day = 2;
+
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+
+            case 2:
+                System.out.println("Tuesday");
+                break;
+
+            default:
+                System.out.println("Invalid day");
+        }
+
+        // For loop
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+
+        // While loop
+        int i = 1;
+
+        while (i <= 3) {
+            System.out.println(i);
+            i++;
+        }
+
+        // Do-while
+        int j = 1;
+
+        do {
+            System.out.println(j);
+            j++;
+        } while (j <= 3);
+
+        // Enhanced for loop
+        int[] numbers = {10, 20, 30};
+
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+
+        // Break and continue
+        for (int k = 1; k <= 5; k++) {
+
+            if (k == 2) {
+                continue;
+            }
+
+            if (k == 5) {
+                break;
+            }
+
+            System.out.println(k);
+        }
+    }
+
+    // 6. Methods and method overloading
+    static void methodsAndOverloading() {
+
+        greet();
+
+        int result = add(10, 20);
+        System.out.println("Sum: " + result);
+
+        System.out.println(add(10, 20, 30));
+
+        System.out.println(add(10.5, 20.5));
+    }
+
+    static void greet() {
+        System.out.println("Welcome to Java");
+    }
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloading: different number of parameters
+    static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloading: different parameter types
+    static double add(double a, double b) {
+        return a + b;
+    }
+
+    // 7. Java is always pass-by-value
+    static void passByValue() {
+
+        int number = 10;
+
+        changeNumber(number);
+
+        System.out.println("Primitive after method: " + number);
+
+        Student student = new Student("Rahul", 20);
+
+        changeStudentAge(student);
+
+        System.out.println("Age after mutation: " + student.age);
+
+        reassignStudent(student);
+
+        System.out.println("Name after reassignment: " + student.name);
+    }
+
+    static void changeNumber(int number) {
+        number = 100;
+    }
+
+    static void changeStudentAge(Student s) {
+        s.age = 25;
+    }
+
+    static void reassignStudent(Student s) {
+        s = new Student("Aman", 22);
+    }
+
+    // 8. Recursion
+    static void recursion() {
+
+        System.out.println("Factorial: " + factorial(5));
+
+        countdown(5);
+
+        System.out.println("Fibonacci: " + fibonacci(6));
+    }
+
+    static int factorial(int n) {
+
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        return n * factorial(n - 1);
+    }
+
+    static void countdown(int n) {
+
+        if (n == 0) {
+            return;
+        }
+
+        System.out.println(n);
+
+        countdown(n - 1);
+    }
+
+    static int fibonacci(int n) {
+
+        if (n <= 1) {
+            return n;
+        }
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // 9. Varargs
+    static void varargsDemo() {
+
+        printNumbers(10, 20, 30, 40);
+
+        printNumbers(5, 15);
+    }
+
+    static void printNumbers(int... numbers) {
+
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+    }
+
+    // 10. One-dimensional arrays
+    static void oneDArray() {
+
+        int[] arr = {10, 20, 30, 40, 50};
+
+        // Access
+        System.out.println(arr[0]);
+
+        // Length
+        System.out.println(arr.length);
+
+        // Traversal
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+
+        // Sum
+        int sum = 0;
+
+        for (int number : arr) {
+            sum += number;
+        }
+
+        System.out.println("Sum: " + sum);
+
+        // Maximum
+        int max = arr[0];
+
+        for (int number : arr) {
+            if (number > max) {
+                max = number;
+            }
+        }
+
+        System.out.println("Maximum: " + max);
+
+        // Reverse traversal
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    // 11. Two-dimensional and jagged arrays
+    static void twoDArray() {
+
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Print matrix
+        for (int i = 0; i < matrix.length; i++) {
+
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+
+        // Jagged array
+        int[][] jagged = {
+            {1, 2},
+            {3, 4, 5},
+            {6}
+        };
+
+        for (int[] row : jagged) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+
+            System.out.println();
+        }
+    }
+
+    // 12. Array of objects
+    static void arrayOfObjects() {
+
+        Student[] students = new Student[3];
+
+        // Creating individual objects
+        students[0] = new Student("Rahul", 20);
+        students[1] = new Student("Aman", 21);
+        students[2] = new Student("Sarthak", 20);
+
+        for (Student student : students) {
+            System.out.println(student.name + " " + student.age);
+        }
+    }
+
+    // 13. Arrays utility class
+    static void arraysUtility() {
+
+        int[] arr = {50, 10, 40, 20, 30};
+
+        // Sorting
+        Arrays.sort(arr);
+
+        System.out.println(Arrays.toString(arr));
+
+        // Binary search (array must be sorted)
+        int index = Arrays.binarySearch(arr, 30);
+
+        System.out.println("Index: " + index);
+
+        // Fill
+        int[] numbers = new int[5];
+
+        Arrays.fill(numbers, 100);
+
+        System.out.println(Arrays.toString(numbers));
+
+        // Compare arrays
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3};
+
+        System.out.println(Arrays.equals(a, b));
+    }
+
+    // 14. Tricky concepts
+    static void trickyConcepts() {
+
+        // Short-circuit evaluation
+        int a = 10;
+        int b = 0;
+
+        if (a > 5 || b++ > 0) {
+            System.out.println("Condition true");
+        }
+
+        System.out.println("b = " + b); // 0
+
+        // Null reference in an array
+        Student[] students = new Student[2];
+
+        students[0] = new Student("Rahul", 20);
+
+        System.out.println(students[0].name);
+
+        // students[1] is null.
+        // Accessing students[1].name causes NullPointerException.
+
+        // Default values of instance variables
+        Phase1Revision obj = new Phase1Revision();
+
+        System.out.println("Instance variable: " + obj.instanceVariable);
+        System.out.println("Static variable: " + staticVariable);
+    }
+
+    // Nested Student class
+    static class Student {
+
+        String name;
+        int age;
+
+        Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+}
